@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COMP3025_ASSIGNMENT_1110642">
         <activity
+            android:name=".searchWordActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
