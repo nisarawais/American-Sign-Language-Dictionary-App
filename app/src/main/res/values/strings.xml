@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COMP3025_ASSIGNMENT_1110642</string>
+        <string name="app_name">COMP3025_ASSIGNMENT_1110642</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_fragment">Home Fragment</string>
@@ -10,7 +10,7 @@
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="contact_us">Contact Us</string>
-    <string name="asl_butterfly_dictionary">ASL Butterfly Dictionary</string>
     <string name="create_new_account">Create New Account</string>
     <string name="name">Name</string>
+    <string name="asl_dictionary">ASL Dictionary</string>
 </resources>
