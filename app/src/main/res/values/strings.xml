@@ -11,6 +11,12 @@
     <string name="favorite">Favorite</string>
     <string name="contact_us">Contact Us</string>
     <string name="create_new_account">Create New Account</string>
-    <string name="name">Name</string>
     <string name="asl_dictionary">ASL Dictionary</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_instruction_text">Please type your email address:</string>
+    <string name="password_instruction">Please create the password:</string>
+    <string name="done">Done</string>
 </resources>
