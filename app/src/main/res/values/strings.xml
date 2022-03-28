@@ -19,4 +19,7 @@
     <string name="email_instruction_text">Please type your email address:</string>
     <string name="password_instruction">Please create the password:</string>
     <string name="done">Done</string>
+    <string name="login_instruction">Please enter your email address and your password to log in.</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
 </resources>

@@ -49,6 +49,11 @@ class MainActivity : AppCompatActivity() {
         binding.signupButton.setOnClickListener{
             startActivity(Intent(this,SignUpActivity::class.java))
         }
+
+        // navigate to the log in page
+        binding.loginButton.setOnClickListener{
+            startActivity(Intent(this,SignInActivity::class.java))
+        }
     }
 
     fun openFragment(fragment: Fragment){
