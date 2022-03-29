@@ -22,7 +22,7 @@ class SignUpActivity : AppCompatActivity() {
 
         //navigate to the home page
         binding.doneButton.setOnClickListener {
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this,HomeFragment::class.java))
         }
     }
 }
