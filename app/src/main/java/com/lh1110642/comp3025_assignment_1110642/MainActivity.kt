@@ -3,9 +3,7 @@ package com.lh1110642.comp3025_assignment_1110642
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.lh1110642.comp3025_assignment_1110642.databinding.ActivityMainBinding
 
 
@@ -19,24 +17,22 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.visibility = View.GONE
 
-//        openFragment(HomeFragment())
-
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    openFragment(HomeFragment())
+                    startActivity(Intent(this,HomeActivity::class.java))
                     true
                 }
                 R.id.search -> {
-                    openFragment(SearchFragment())
+                    startActivity(Intent(this,SearchActivity::class.java))
                     true
                 }
                 R.id.favorite -> {
-                    openFragment(FavoriteFragment())
+                    startActivity(Intent(this,FavoriteActivity::class.java))
                     true
                 }
                 R.id.contact_us -> {
-                    openFragment(ContactUsFragment())
+                    startActivity(Intent(this,ContactUsActivity::class.java))
                     true
                 }
                 else -> {
@@ -55,16 +51,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,SignInActivity::class.java))
         }
     }
-
-    fun openFragment(fragment: Fragment){
-
-        supportFragmentManager.beginTransaction()
-//            .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-            .addToBackStack(null)
-            .replace(R.id.frame_layout, fragment).commit()
-    }
-
-
-
-
 }
