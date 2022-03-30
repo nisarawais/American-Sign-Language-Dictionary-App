@@ -18,33 +18,6 @@ class MainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide()
 
 
-
-//        openFragment(HomeFragment())
-
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home -> {
-                    openFragment(HomeFragment())
-                    true
-                }
-                R.id.search -> {
-                    openFragment(SearchFragment())
-                    true
-                }
-                R.id.favorite -> {
-                    openFragment(FavoriteFragment())
-                    true
-                }
-                R.id.contact_us -> {
-                    openFragment(ContactUsFragment())
-                    true
-                }
-                else -> {
-                   false
-                }
-            }
-        }
-
         // navigate to the sign up page
         binding.signupButton.setOnClickListener{
             startActivity(Intent(this,SignUpActivity::class.java))
@@ -55,16 +28,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,SignInActivity::class.java))
         }
     }
-
-    fun openFragment(fragment: Fragment){
-
-        supportFragmentManager.beginTransaction()
-//            .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-            .addToBackStack(null)
-            .replace(R.id.frame_layout, fragment).commit()
-    }
-
-
-
-
 }
