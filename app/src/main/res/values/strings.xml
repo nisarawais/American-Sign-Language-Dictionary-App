@@ -9,7 +9,6 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
-    <string name="contact_us">Contact Us</string>
     <string name="create_new_account">Create New Account</string>
     <string name="asl_dictionary">ASL Dictionary</string>
     <string name="log_in">Log In</string>
@@ -33,4 +32,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_to_nasl_dictionary_app">Welcome to\nASL Dictionary App</string>
     <string name="info_about_app">A Deaf owned ASL dictionary app helps\nto bridge a communication gap between\nthe non ASL user and ASL user communities.\n\nFeel free to go to contact us page\nif you have any feedback, question,\nor concern about ASL Dictionary App.</string>
+    <string name="dictionary_search">Dictionary Search</string>
+    <string name="search_here">Search here ...</string>
+    <string name="favorite_words">Favorite Words</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="question">What is the subject of the email?</string>
+    <string name="submit">Submit</string>
 </resources>
