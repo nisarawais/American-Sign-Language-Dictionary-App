@@ -58,16 +58,14 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.3.0')
 
     // Declare the dependencies for the desired Firebase products without specifying versions
-    // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
-    implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
-
-    // Declare the base library
-    implementation 'com.google.firebase:firebase-analytics'
 
     // Declare the KTX library instead (which automatically has a dependency on the base library)
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Also declare the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
 }

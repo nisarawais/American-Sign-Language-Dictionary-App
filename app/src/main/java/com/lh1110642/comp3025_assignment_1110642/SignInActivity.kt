@@ -24,11 +24,7 @@ class SignInActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
-//        //navigate to the home page
-//        binding.loginButton.setOnClickListener {
-//            startActivity(Intent(this,InsideMainActivity::class.java))
-//
-//        }
+
         auth = Firebase.auth
 
         binding.loginButton.setOnClickListener {
@@ -53,6 +49,7 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
+                    startActivity(Intent(this,SignInActivity::class.java))
                 }
             }
         // [END sign_in_with_email]

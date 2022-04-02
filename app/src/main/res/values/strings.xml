@@ -38,4 +38,5 @@
     <string name="contact_us">Contact Us</string>
     <string name="question">What is the subject of the email?</string>
     <string name="submit">Submit</string>
+    <string name = "client_id">1067832269135-ah7c7qi13mtvg7iejrii7b6l66pus9pi.apps.googleusercontent.com</string>
 </resources>
