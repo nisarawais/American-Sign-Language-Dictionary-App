@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,6 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
+    private lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var param1: String? = null
@@ -40,8 +44,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        auth = Firebase.auth
         binding.backButton.setOnClickListener{
+            Firebase.auth.signOut()
             val intent = Intent (this.context, MainActivity::class.java)
             startActivity(intent)
         }
