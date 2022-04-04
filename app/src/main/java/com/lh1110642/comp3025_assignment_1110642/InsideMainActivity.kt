@@ -35,6 +35,7 @@ class InsideMainActivity : AppCompatActivity() {
                     openFragment(ContactUsFragment())
                     true
                 }
+
                 else -> {
                     false
                 }

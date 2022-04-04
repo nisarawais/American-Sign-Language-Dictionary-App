@@ -38,5 +38,8 @@
     <string name="contact_us">Contact Us</string>
     <string name="question">What is the subject of the email?</string>
     <string name="submit">Submit</string>
-    <string name = "client_id">1067832269135-ah7c7qi13mtvg7iejrii7b6l66pus9pi.apps.googleusercontent.com</string>
+    <string name="client_id">1067832269135-ah7c7qi13mtvg7iejrii7b6l66pus9pi.apps.googleusercontent.com</string>
+    <string name="enter_new_word">Enter New Word</string>
+    <string name="upload">Upload</string>
+    <string name="type_the_description_in_the_box_below_here_about_the_sign">Type the description about the sign\nin the box below here</string>
 </resources>

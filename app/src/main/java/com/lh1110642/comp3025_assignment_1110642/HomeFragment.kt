@@ -1,15 +1,17 @@
 package com.lh1110642.comp3025_assignment_1110642
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,6 +53,13 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.addNewSign.setOnClickListener {
+            val intent = Intent (this.context, AddNewSignActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
         return binding.root
     }
 
@@ -58,7 +67,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of

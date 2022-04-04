@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentSearchBinding
 
@@ -23,6 +25,7 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
     private var param1: String? = null
     private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

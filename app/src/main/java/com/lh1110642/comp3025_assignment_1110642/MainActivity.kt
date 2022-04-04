@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data) //im confused about this situation
 
         if (requestCode == RC_SIGN_IN) {
                 Log.d(TAG, "onActivityResult: Google SignIn intent result")
