@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "735006706533",
+    "project_id": "asl-dictionary-app",
+    "storage_bucket": "asl-dictionary-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735006706533:android:0020e22df14397fb962f8c",
+        "android_client_info": {
+          "package_name": "com.lh1110642.comp3025_assignment_1110642"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735006706533-i1m6rfr2igd9igt1iib85d5cnpr5lerg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlBeqUjnbVoFgSenlxLbmG8IwMYJM6onw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735006706533-i1m6rfr2igd9igt1iib85d5cnpr5lerg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
