@@ -30,7 +30,15 @@ class SignInActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
-            signIn(email, password)
+
+            if (email.isEmpty() || password.isEmpty())
+            {
+                Toast.makeText(baseContext, "Please type your log in info",
+                    Toast.LENGTH_SHORT).show()
+            }
+            else{
+                signIn(email, password)
+            }
         }
     }
 
@@ -44,19 +52,23 @@ class SignInActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
                     updateUI(null)
-                    startActivity(Intent(this,SignInActivity::class.java))
                 }
             }
         // [END sign_in_with_email]
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        startActivity(Intent(this,InsideMainActivity::class.java))
+        if (user!= null){
+            startActivity(Intent(this,InsideMainActivity::class.java))
+        }
+        else{
+            Toast.makeText(baseContext, "Ooops! Your email or password isn't matching. Please try again.",
+                Toast.LENGTH_SHORT).show()
+            binding.email.text.clear()
+            binding.password.text.clear()
+        }
+
     }
 
     companion object {

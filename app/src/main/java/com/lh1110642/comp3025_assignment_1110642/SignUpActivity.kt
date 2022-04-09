@@ -36,7 +36,16 @@ class SignUpActivity : AppCompatActivity() {
         binding.doneButton.setOnClickListener {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
-            createAccount(email, password)
+
+            if (email.isEmpty() || password.isEmpty())
+            {
+                Toast.makeText(baseContext, "Please type your sign up info",
+                    Toast.LENGTH_SHORT).show()
+            }
+            else{
+                createAccount(email, password)
+            }
+
         }
     }
 
@@ -53,16 +62,25 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Your email and password need to be in the proper format.",
                         Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+                    binding.email.text.clear()
+                    binding.password.text.clear()
                 }
             }
         // [END create_user_with_email]
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        startActivity(Intent(this,InsideMainActivity::class.java))
+        if (user!= null){
+            startActivity(Intent(this,InsideMainActivity::class.java))
+        }
+        else{
+            Toast.makeText(baseContext, "Your email and password need to be in the proper format.",
+                Toast.LENGTH_SHORT).show()
+            binding.email.text.clear()
+            binding.password.text.clear()
+        }
     }
 
     companion object {
