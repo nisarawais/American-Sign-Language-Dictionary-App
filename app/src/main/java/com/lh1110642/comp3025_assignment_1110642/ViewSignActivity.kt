@@ -1,8 +1,11 @@
 package com.lh1110642.comp3025_assignment_1110642
-import androidx.appcompat.app.AppCompatActivity
+
+import android.media.MediaPlayer.OnPreparedListener
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.lh1110642.comp3025_assignment_1110642.databinding.ActivityViewSignBinding
+
 
 class ViewSignActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewSignBinding
@@ -24,11 +27,15 @@ class ViewSignActivity : AppCompatActivity() {
 
         try {
             binding.videoSigning.setVideoPath(word.videoUri)
+            binding.videoSigning.requestFocus()
             binding.videoSigning.start()
+            binding.videoSigning.setOnPreparedListener(OnPreparedListener { mp -> mp.isLooping = true })
 
         }catch (e: Exception){
             Log.e("ViewSigningActivity", "onCreate: $e")
         }
+
+
 
     }
 
