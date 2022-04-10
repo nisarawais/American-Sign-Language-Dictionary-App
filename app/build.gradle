@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id  'kotlin-kapt'
 }
 
 android {
@@ -18,6 +19,7 @@ android {
     }
     buildFeatures{
         viewBinding true
+        dataBinding true
     }
 
 
@@ -69,4 +71,8 @@ dependencies {
 
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    implementation 'com.firebaseui:firebase-ui-database:2.3.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }

@@ -1,14 +1,18 @@
 package com.lh1110642.comp3025_assignment_1110642
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentSearchBinding
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,15 +27,29 @@ private const val ARG_PARAM2 = "param2"
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+    private lateinit var wordList: ArrayList<Word>
+    private lateinit var adapterSigning: Adapter
+
+
     private var param1: String? = null
     private var param2: String? = null
 
+    private val db = FirebaseDatabase.getInstance()
+    private val root = db.reference.child("Videos")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+
+        binding.wordListrv.setHasFixedSize(true)
+//        loadSignFromFirebase()
+
+        binding.wordListrv.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = Adapter(wordList)
         }
     }
 
@@ -40,9 +58,11 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
-
-
+//        return inflater.inflate(R.layout.fragment_search, container, false)
         return binding.root
+
+
+
     }
 
     companion object {
@@ -64,4 +84,26 @@ class SearchFragment : Fragment() {
                 }
             }
     }
+//    private fun loadSignFromFirebase() {
+//        wordList = ArrayList()
+//
+//        val ref = FirebaseDatabase.getInstance().getReference("Videos")
+//        ref.addValueEventListener(object: ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot){
+//                wordList.clear()
+//                for(ds in snapshot.children){
+//                    val modelWord = ds.getValue(Word::class.java)
+//                    wordList.add((modelWord!!))
+//                }
+//
+//                adapterSigning = Adapter(this@SearchFragment,wordList)
+//                binding.wordListrv.adapter = adapterSigning
+//            }
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//        }
+
+//        )
+//    }
 }

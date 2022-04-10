@@ -75,7 +75,7 @@ class AddNewSignActivity : AppCompatActivity() {
             {
                 Toast.makeText(this,"Word is required",Toast.LENGTH_SHORT).show()
             }
-            else if (galleryActivityResultLauncher == null){
+            else if (urivideo == null){
                 Toast.makeText(this,"Pick a Video",Toast.LENGTH_SHORT).show()
             }
             else {
@@ -116,7 +116,9 @@ class AddNewSignActivity : AppCompatActivity() {
                         .setValue(hashMap)
                         .addOnSuccessListener {
                             progressDialog.dismiss()
-                            Toast.makeText(this,"Video Uploaded", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"New Sign Is Uploaded", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this,HomeFragment::class.java))
+
                         }
                         .addOnFailureListener { e->
                             progressDialog.dismiss()
