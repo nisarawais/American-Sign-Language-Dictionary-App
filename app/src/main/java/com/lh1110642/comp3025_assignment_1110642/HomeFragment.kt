@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
 
 
         }
+
     }
 
     override fun onCreateView(
@@ -53,12 +54,18 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.addNewSign.setOnClickListener {
-            val intent = Intent (this.context, AddNewSignActivity::class.java)
-            startActivity(intent)
+        val currentUser = auth.currentUser
+
+        if(currentUser.toString().contains("nisarawais246@gmail.com"))
+        {
+            binding.addNewSign.setOnClickListener {
+                val intent = Intent (this.context, AddNewSignActivity::class.java)
+                startActivity(intent)
+            }
         }
-
-
+        else{
+            binding.addNewSign.hide()
+        }
 
         return binding.root
     }
