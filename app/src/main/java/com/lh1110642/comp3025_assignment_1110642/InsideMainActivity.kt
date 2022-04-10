@@ -27,14 +27,14 @@ class InsideMainActivity : AppCompatActivity() {
                     openFragment(SearchFragment())
                     true
                 }
-                R.id.favorite -> {
-                    openFragment(FavoriteFragment())
-                    true
-                }
-                R.id.contact_us -> {
-                    openFragment(ContactUsFragment())
-                    true
-                }
+//                R.id.favorite -> {
+//                    openFragment(FavoriteFragment())
+//                    true
+//                }
+//                R.id.contact_us -> {
+//                    openFragment(ContactUsFragment())
+//                    true
+//                }
 
                 else -> {
                     false

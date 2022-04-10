@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -39,6 +40,7 @@ class HomeFragment : Fragment() {
 
         }
 
+
     }
 
     override fun onCreateView(
@@ -47,6 +49,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         auth = Firebase.auth
         binding.backButton.setOnClickListener{
             Firebase.auth.signOut()
@@ -54,9 +57,8 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        val currentUser = auth.currentUser
 
-        if(currentUser.toString().contains("nisarawais246@gmail.com"))
+        if(auth.currentUser!!.email.toString().contains("nisarawais246@gmail.com"))
         {
             binding.addNewSign.setOnClickListener {
                 val intent = Intent (this.context, AddNewSignActivity::class.java)
@@ -66,8 +68,8 @@ class HomeFragment : Fragment() {
         else{
             binding.addNewSign.hide()
         }
-
         return binding.root
+
     }
 
     override fun onDestroyView() {
