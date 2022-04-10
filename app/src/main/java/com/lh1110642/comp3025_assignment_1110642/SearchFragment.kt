@@ -1,9 +1,12 @@
 package com.lh1110642.comp3025_assignment_1110642
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.*
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,35 +30,20 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SearchFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), OnViewSignClickListener {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapterSigning: Adapter
     var wordList: ArrayList<Word> = ArrayList()
-
-
-    private var param1: String? = null
-    private var param2: String? = null
-
-    private val db = FirebaseDatabase.getInstance()
-    private val root = db.reference.child("Videos")
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    var filteredWordList: ArrayList<Word> = ArrayList()
+    var searchKey = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        _binding = FragmentSearchBinding.inflate(inflater, container, false)
-        val view = inflater.inflate(R.layout.fragment_search, container, false)
-        initRecyclerView(view)
-        return view
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     companion object {
@@ -78,10 +66,19 @@ class SearchFragment : Fragment() {
             }
     }
 
-    private fun initRecyclerView(view: View) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
         wordList = ArrayList()
-        val rv = view.findViewById<RecyclerView>(R.id.word_listrv)
+
+        val rv = binding.wordListrv
         rv.layoutManager = LinearLayoutManager(activity)
+        adapterSigning = Adapter(filteredWordList,this@SearchFragment)
+        rv.adapter = adapterSigning
+
         val ref = FirebaseDatabase.getInstance().getReference("Videos")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -93,8 +90,7 @@ class SearchFragment : Fragment() {
                 wordList.sortBy {
                     it.word
                 }
-                adapterSigning = Adapter(wordList)
-                rv.adapter = adapterSigning
+                applyFilter()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -103,6 +99,34 @@ class SearchFragment : Fragment() {
         }
 
         )
+
+        binding.searchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(e: Editable?) {
+                e?.let {
+                    searchKey = it.toString()
+                    applyFilter()
+                }
+            }
+        })
+    }
+
+    override fun onViewSignItemClicked(word: Word) {
+        val intent  = Intent(context, ViewSignActivity::class.java)
+        intent.putExtra(KEY_WORD_DATA, word)
+        startActivity(intent)
+    }
+
+    private fun applyFilter(){
+        filteredWordList.clear()
+        filteredWordList.addAll(wordList.filter { it.word?.contains(searchKey, true)?:false })
+        adapterSigning.notifyDataSetChanged()
     }
 
 }

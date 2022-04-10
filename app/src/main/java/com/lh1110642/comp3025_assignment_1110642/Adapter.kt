@@ -1,18 +1,14 @@
 package com.lh1110642.comp3025_assignment_1110642
 
-import android.content.Context
-import android.net.Uri
-import android.provider.UserDictionary
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.MediaController
+import android.widget.Filter
 import android.widget.TextView
-import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class Adapter(private var wordList: ArrayList<Word>?) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private val wordList: ArrayList<Word>?,private val onViewSignClickListener: OnViewSignClickListener) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 //           val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_view_sign, parent,false)
@@ -30,6 +26,9 @@ class Adapter(private var wordList: ArrayList<Word>?) : RecyclerView.Adapter<Ada
            val videoUri: String? = wordz.videoUri
            val description: String? = wordz.description
 
+           viewHolder.itemView.setOnClickListener{
+               onViewSignClickListener.onViewSignItemClicked(wordz)
+           }
 //           viewHolder.wordTextView.text = word
 //           setVideoUrl(wordz,viewHolder)
 //           viewHolder.descriptionTextView.text = description
