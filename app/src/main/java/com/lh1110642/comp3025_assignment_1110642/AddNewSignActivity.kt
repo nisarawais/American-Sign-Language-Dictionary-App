@@ -20,7 +20,9 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.lh1110642.comp3025_assignment_1110642.databinding.ActivityAddNewSignBinding
+import java.util.*
 import java.util.jar.Manifest
+import kotlin.collections.HashMap
 
 class AddNewSignActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNewSignBinding
@@ -69,7 +71,7 @@ class AddNewSignActivity : AppCompatActivity() {
 
         //upload new sign to the app
         binding.doneButton.setOnClickListener {
-            word = binding.newWord.text.toString().trim()
+            word = binding.newWord.text.toString().trim().replaceFirstChar { it.uppercase() }
             description = binding.descriptionInput.text.toString()
             if(TextUtils.isEmpty(word))
             {

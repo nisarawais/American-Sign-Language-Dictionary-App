@@ -12,6 +12,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentSearchBinding
+import java.lang.AssertionError
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,8 +30,8 @@ private const val ARG_PARAM2 = "param2"
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private lateinit var wordList: ArrayList<Word>
     private lateinit var adapterSigning: Adapter
+    var wordList: ArrayList<Word> = ArrayList()
 
 
     private var param1: String? = null
@@ -43,26 +46,16 @@ class SearchFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
-        binding.wordListrv.setHasFixedSize(true)
-//        loadSignFromFirebase()
-
-        binding.wordListrv.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = Adapter(wordList)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
-//        return inflater.inflate(R.layout.fragment_search, container, false)
-        return binding.root
-
-
-
+//        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_search, container, false)
+        initRecyclerView(view)
+        return view
     }
 
     companion object {
@@ -84,26 +77,32 @@ class SearchFragment : Fragment() {
                 }
             }
     }
-//    private fun loadSignFromFirebase() {
-//        wordList = ArrayList()
-//
-//        val ref = FirebaseDatabase.getInstance().getReference("Videos")
-//        ref.addValueEventListener(object: ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot){
-//                wordList.clear()
-//                for(ds in snapshot.children){
-//                    val modelWord = ds.getValue(Word::class.java)
-//                    wordList.add((modelWord!!))
-//                }
-//
-//                adapterSigning = Adapter(this@SearchFragment,wordList)
-//                binding.wordListrv.adapter = adapterSigning
-//            }
-//            override fun onCancelled(error: DatabaseError) {
-//
-//            }
-//        }
 
-//        )
-//    }
+    private fun initRecyclerView(view: View) {
+        wordList = ArrayList()
+        val rv = view.findViewById<RecyclerView>(R.id.word_listrv)
+        rv.layoutManager = LinearLayoutManager(activity)
+        val ref = FirebaseDatabase.getInstance().getReference("Videos")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                wordList.clear()
+                for (ds in snapshot.children) {
+                    val modelWord = ds.getValue(Word::class.java)
+                    wordList.add((modelWord!!))
+                }
+                wordList.sortBy {
+                    it.word
+                }
+                adapterSigning = Adapter(wordList)
+                rv.adapter = adapterSigning
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        }
+
+        )
+    }
+
 }
