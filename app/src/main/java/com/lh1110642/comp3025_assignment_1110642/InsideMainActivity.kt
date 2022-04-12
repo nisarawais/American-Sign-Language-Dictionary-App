@@ -1,8 +1,8 @@
 package com.lh1110642.comp3025_assignment_1110642
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.lh1110642.comp3025_assignment_1110642.databinding.ActivityInsideMainBinding
 
@@ -43,6 +43,12 @@ class InsideMainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
+    }
     fun openFragment(fragment: Fragment) {
 
         supportFragmentManager.beginTransaction()
