@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -25,7 +26,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
+//    private lateinit var auth: FirebaseAuth
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var param1: String? = null
@@ -50,24 +51,28 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        auth = Firebase.auth
-        binding.backButton.setOnClickListener{
-            Firebase.auth.signOut()
-            val intent = Intent (this.context, MainActivity::class.java)
-            startActivity(intent)
-        }
+//        auth = Firebase.auth
+//        binding.backButton.setOnClickListener{
+//            Firebase.auth.signOut()
+//            val intent = Intent (this.context, MainActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
-        if(auth.currentUser!!.email.toString().contains("nisarawais246@gmail.com"))
-        {
-            binding.addNewSign.setOnClickListener {
-                val intent = Intent (this.context, AddNewSignActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        else{
-            binding.addNewSign.hide()
-        }
+//        if(auth.currentUser!!.email.toString().contains("nisarawais246@gmail.com"))
+//        {
+//            binding.addNewSign.setOnClickListener {
+//                val intent = Intent (this.context, AddNewSignActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
+//        else{
+//            binding.addNewSign.hide()
+//        }
+
+//        binding.addNewSign.hide()
+//        binding.backButton.visibility = View.GONE
+
         return binding.root
 
     }
