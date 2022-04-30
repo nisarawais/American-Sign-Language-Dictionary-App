@@ -15,18 +15,19 @@ class InsideMainActivity : AppCompatActivity() {
         getSupportActionBar()?.hide()
 
 
-        openFragment(HomeFragment())
+        openFragment(SearchFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> {
-                    openFragment(HomeFragment())
-                    true
-                }
                 R.id.search -> {
                     openFragment(SearchFragment())
                     true
                 }
+                R.id.home -> {
+                    openFragment(HomeFragment())
+                    true
+                }
+
 //                R.id.favorite -> {
 //                    openFragment(FavoriteFragment())
 //                    true

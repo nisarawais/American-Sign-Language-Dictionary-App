@@ -1,23 +1,21 @@
 package com.lh1110642.comp3025_assignment_1110642
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import android.widget.SearchView
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentSearchBinding
-import java.lang.AssertionError
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,6 +42,8 @@ class SearchFragment : Fragment(), OnViewSignClickListener {
     ): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     companion object {
@@ -66,10 +66,23 @@ class SearchFragment : Fragment(), OnViewSignClickListener {
             }
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+
+            binding.clear.setOnClickListener{
+                binding.searchBar.text.clear()
+            }
+
+            binding.searchButton.setOnClickListener {
+                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(requireActivity().currentFocus!!.windowToken, 0)
+            }
     }
+
+
+
 
     private fun initRecyclerView() {
         wordList = ArrayList()
@@ -113,15 +126,21 @@ class SearchFragment : Fragment(), OnViewSignClickListener {
                     searchKey = it.toString()
                     applyFilter()
                 }
+
+
             }
         })
     }
+
+
 
     override fun onViewSignItemClicked(word: Word) {
         val intent  = Intent(context, ViewSignActivity::class.java)
         intent.putExtra(KEY_WORD_DATA, word)
         startActivity(intent)
+
     }
+
 
     private fun applyFilter(){
         filteredWordList.clear()
