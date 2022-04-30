@@ -15,31 +15,48 @@
         <entry key="app/src/main/res/drawable/search_design.xml" value="0.211" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.2375" />
         <entry key="app/src/main/res/drawable/word_list_background.xml" value="0.211" />
+        <entry key="app/src/main/res/layout-hdpi/activity_add_new_sign.xml" value="0.82875" />
+        <entry key="app/src/main/res/layout-hdpi/activity_main.xml" value="0.4742074584960937" />
+        <entry key="app/src/main/res/layout-hdpi/activity_view_sign.xml" value="0.23009796142578126" />
+        <entry key="app/src/main/res/layout-hdpi/fragment_home.xml" value="0.47717842323651455" />
+        <entry key="app/src/main/res/layout-hdpi/fragment_search.xml" value="0.7987951807228916" />
+        <entry key="app/src/main/res/layout-hdpi/row_word.xml" value="0.258984375" />
+        <entry key="app/src/main/res/layout-xhdpi/activity_main.xml" value="0.51796875" />
+        <entry key="app/src/main/res/layout-xhdpi/activity_view_sign.xml" value="0.4149661231586952" />
+        <entry key="app/src/main/res/layout-xhdpi/fragment_home.xml" value="0.2459445167133827" />
+        <entry key="app/src/main/res/layout-xhdpi/fragment_search.xml" value="0.5061068702290077" />
+        <entry key="app/src/main/res/layout-xhdpi/row_word.xml" value="0.258984375" />
+        <entry key="app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.26769561767578126" />
+        <entry key="app/src/main/res/layout-xxhdpi/activity_view_sign.xml" value="0.5296039966150092" />
+        <entry key="app/src/main/res/layout-xxhdpi/fragment_home.xml" value="0.27986492190797807" />
+        <entry key="app/src/main/res/layout-xxhdpi/fragment_search.xml" value="0.27986492190797807" />
+        <entry key="app/src/main/res/layout-xxhdpi/row_word.xml" value="0.258984375" />
         <entry key="app/src/main/res/layout/activity_add_new_sign.xml" value="0.2956140350877193" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.29351549650493425" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.28373003507915295" />
         <entry key="app/src/main/res/layout/activity_google_sign.xml" value="0.2789473684210526" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.34487658048930925" />
-        <entry key="app/src/main/res/layout/activity_inside_main.xml" value="0.18055555555555555" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25359649658203126" />
+        <entry key="app/src/main/res/layout/activity_inside_main.xml" value="1.1790418836805556" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="1.6958190917968752" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.1513157894736842" />
         <entry key="app/src/main/res/layout/activity_search_word.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.26842105263157895" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.27675933837890626" />
-        <entry key="app/src/main/res/layout/activity_view_sign.xml" value="0.2618209838867188" />
+        <entry key="app/src/main/res/layout/activity_view_sign.xml" value="0.21663665771484397" />
         <entry key="app/src/main/res/layout/fragment_contact_us.xml" value="0.2886260986328125" />
         <entry key="app/src/main/res/layout/fragment_create_sign.xml" value="0.10277777777777777" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/fragment_fourth.xml" value="0.3463541666666667" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.316790771484375" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.3349517822265625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.26553039550781266" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="1.061761474609375" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/row_word.xml" value="0.2917748917748918" />
         <entry key="app/src/main/res/layout/search_outline.xml" value="0.2964912280701754" />
         <entry key="app/src/main/res/layout/word_list_background.xml" value="0.29864864864864865" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1885" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.211" />
       </map>
     </option>
@@ -53,7 +70,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.28344525788959696" />
+        <option name="scale" value="0.27986492190797807" />
       </ProjectState>
     </option>
   </component>

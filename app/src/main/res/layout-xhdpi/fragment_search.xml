@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="75dp"
         android:background="@drawable/search_design"
         android:ems="10"
         android:hint="@string/search_here"
@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="46dp"
         android:background="@drawable/orange_round_button"
         android:src="@drawable/ic_search" />
 

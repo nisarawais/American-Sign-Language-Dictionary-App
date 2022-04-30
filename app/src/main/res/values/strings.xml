@@ -31,7 +31,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="welcome_to_nasl_dictionary_app">Welcome to\nASL Dictionary App</string>
-    <string name="info_about_app">A Deaf owned ASL dictionary app helps\nto bridge a communication gap between\nthe non ASL user and ASL user communities.\n\nFeel free to go to contact us page\nif you have any feedback, question,\nor concern about ASL Dictionary App.</string>
+    <string name="info_about_app">A Deaf owned ASL dictionary app helps\nto bridge a communication gap between\nthe non ASL user and ASL user communities.\n\nFeel free to go to reach me\nif you have any feedback, question,\nor concern about ASL Dictionary App.</string>
     <string name="dictionary_search">Dictionary Search</string>
     <string name="search_here">Search here ...</string>
     <string name="favorite_words">Favorite Words</string>
