@@ -5,9 +5,11 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
 
@@ -72,9 +74,12 @@ class HomeFragment : Fragment() {
 //        binding.backButton.visibility = View.GONE
 
         binding.mail.setOnClickListener {
+            val TO = arrayOf("nisarawais246@gmail.com")
             val emailIntent = Intent(Intent.ACTION_SEND)
-            emailIntent.data = Uri.parse("mailto:nisarawais246@gmail.com")
+            emailIntent.data = Uri.parse("mailto:")
             emailIntent.type = "plain/text"
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, TO)
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "ASL Dictionary Question/Feedback")
             startActivity(emailIntent)
 
         }
