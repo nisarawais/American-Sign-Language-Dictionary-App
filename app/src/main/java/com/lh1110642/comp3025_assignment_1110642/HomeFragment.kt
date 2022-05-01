@@ -1,17 +1,14 @@
 package com.lh1110642.comp3025_assignment_1110642
 
-import android.R
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.lh1110642.comp3025_assignment_1110642.databinding.FragmentHomeBinding
 
 
@@ -44,6 +41,7 @@ class HomeFragment : Fragment() {
 
     }
 
+    @SuppressLint("IntentReset")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,7 +71,32 @@ class HomeFragment : Fragment() {
 //        binding.addNewSign.hide()
 //        binding.backButton.visibility = View.GONE
 
+        binding.mail.setOnClickListener {
+            val emailIntent = Intent(Intent.ACTION_SEND)
+            emailIntent.data = Uri.parse("mailto:nisarawais246@gmail.com")
+            emailIntent.type = "plain/text"
+            startActivity(emailIntent)
+
+        }
+
+        binding.ig.setOnClickListener {
+            //Initialize link and package
+            val sAppLink = "https://www.instagram.com/thedeaffutureaudiologist"
+            val sPackage = "com.instagram.android"
+
+            openLink(sAppLink,sPackage,sAppLink)
+        }
+
+        binding.tw.setOnClickListener{
+            val sAppLink = "twitter://user?screen_name=awaisnisar_"
+            val sPackage = "com.twitter.android"
+            val sWebLink = "https://www.twitter.com/awaisnisar_"
+
+            openLink(sAppLink,sPackage,sWebLink)
+        }
         return binding.root
+
+
 
     }
 
@@ -100,6 +123,46 @@ class HomeFragment : Fragment() {
                 }
             }
 
+    }
+
+    private fun openLink(sAppLink: String, sPackage: String, sWebLink: String) {
+        //Use try catch
+        try {
+            // when application is installed
+            // Initialize uri
+            val uri = Uri.parse(sAppLink)
+
+            //Initialize intent
+            val intent = Intent(Intent.ACTION_VIEW)
+
+            //Set data
+            intent.data = uri
+
+            //Set package
+            intent.setPackage(sPackage)
+
+            //Set flag
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+
+            //Start Activity
+            startActivity(intent)
+        } catch (activityNotFoundException: ActivityNotFoundException) {
+            //open link in browser
+            // Initialize uri
+            val uri = Uri.parse(sWebLink)
+
+            //Initialize intent
+            val intent = Intent(Intent.ACTION_VIEW)
+
+            //Set data
+            intent.data = uri
+
+            //Set flag
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+
+            //Start Activity
+            startActivity(intent)
+        }
     }
 
 }

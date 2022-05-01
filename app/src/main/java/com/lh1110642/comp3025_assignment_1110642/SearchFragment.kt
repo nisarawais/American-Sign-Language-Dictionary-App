@@ -79,6 +79,7 @@ class SearchFragment : Fragment(), OnViewSignClickListener {
                 val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(requireActivity().currentFocus!!.windowToken, 0)
             }
+
     }
 
 
