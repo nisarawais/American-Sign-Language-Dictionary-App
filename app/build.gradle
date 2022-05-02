@@ -9,11 +9,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.asldictionary.android"
+        applicationId "com.lh1110642.comp3025_assignment_1110642"
         minSdk 23
         targetSdk 32
-        versionCode 8
-        versionName "8"
+        versionCode 7
+        versionName "7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
