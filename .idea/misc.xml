@@ -25,7 +25,8 @@
         <entry key="app/src/main/res/layout-hdpi/row_word.xml" value="0.258984375" />
         <entry key="app/src/main/res/layout-xhdpi/activity_main.xml" value="0.51796875" />
         <entry key="app/src/main/res/layout-xhdpi/activity_view_sign.xml" value="0.4149661231586952" />
-        <entry key="app/src/main/res/layout-xhdpi/fragment_home.xml" value="0.8129287719726561" />
+        <entry key="app/src/main/res/layout-xhdpi/fragment_home.xml" value="0.42844238281249986" />
+        <entry key="app/src/main/res/layout-xhdpi/fragment_home_ppi.xml" value="0.51796875" />
         <entry key="app/src/main/res/layout-xhdpi/fragment_search.xml" value="0.5061068702290077" />
         <entry key="app/src/main/res/layout-xhdpi/row_word.xml" value="0.258984375" />
         <entry key="app/src/main/res/layout-xxhdpi/activity_main.xml" value="0.26769561767578126" />
@@ -50,7 +51,7 @@
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/fragment_fourth.xml" value="0.3463541666666667" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="1.4375869750976566" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="2.185478210449219" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.8290155440414507" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3463541666666667" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.3463541666666667" />
